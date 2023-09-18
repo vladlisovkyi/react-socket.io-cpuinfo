@@ -41,11 +41,12 @@ if (cluster.isMaster) {
   const server = app.listen(0, "localhost");
   const io = socketio(server, {
     cors: {
-      origin: process.env.PUBLIC_URL,
-      credentials: false,
-      allowedHeaders: ["my-custom-header"],
-      methods: ["GET", "POST"],
-      transports: ["websocket", "polling"],
+      origin: '*'
+      // origin: process.env.PUBLIC_URL,
+      // credentials: false,
+      // allowedHeaders: ["my-custom-header"],
+      // methods: ["GET", "POST"],
+      // transports: ["websocket", "polling"],
     },
   });
   if (process.env.REDDIS_HOST) {
