@@ -5,7 +5,7 @@ const socketio = require("socket.io");
 const socketMain = require("./socketMain");
 require("dotenv").config();
 
-const port = 8181;
+const port = process.env.PORT;
 const num_processes = require("os").cpus().length;
 
 const io_redis = require("socket.io-redis");
