@@ -1,0 +1,65 @@
+.bold {
+  font-weight: bold;
+}
+
+.widget {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.not-active {
+  font-family: "Montserrat Subrayada", sans-serif;
+  color: #8b0000;
+  font-size: 100px;
+  position: absolute;
+  z-index: 2;
+}
+
+.cpu-wdiget {
+  margin-top: 20px;
+}
+
+.cpu,
+.mem {
+  background-color: transparent;
+  position: relative;
+  text-align: center;
+}
+
+.cpu-text,
+.mem-text {
+  position: absolute;
+  transform: translate(-45%, -50%);
+  top: 50%;
+  left: 50%;
+  font-size: 30px;
+}
+
+.cpu-info{
+    margin-top: 40px;
+}
+
+.canvas-wrapper {
+  position: relative;
+}
+
+canvas {
+    transition: all 250ms ease-in;
+}
+
+.widget-text > h3{
+    display: inline;
+    margin-bottom: 10px;
+}
+
+.widget-text{
+    text-align: center;
+}
+
+
+.pc-info{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 4rem;
+  }
