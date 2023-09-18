@@ -42,7 +42,8 @@ if (cluster.isMaster) {
   const io = socketio(server, {
     cors: {
       origin: process.env.PUBLIC_URL,
-      credentials: true,
+      credentials: false,
+      allowedHeaders: ["my-custom-header"],
       methods: ["GET", "POST"],
       transports: ["websocket", "polling"],
     },
