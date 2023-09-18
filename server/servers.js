@@ -47,8 +47,11 @@ if (cluster.isMaster) {
       transports: ["websocket", "polling"],
     },
   });
-
-  io.adapter(io_redis({ host: process.env.REDDIS_HOST, port: 6379 }));
+  if (process.env.REDDIS_HOST) {
+    io.adapter(io_redis(process.env.REDDIS_HOST));
+  } else {
+    io.adapter(io_redis({ host: "localhost", port: 6379 }));
+  }
   io.on("connection", function (socket) {
     socketMain(io, socket);
     console.log(`connected to worker: ${cluster.worker.id}`);
