@@ -3,6 +3,7 @@ const cluster = require("cluster");
 const net = require("net");
 const socketio = require("socket.io");
 const socketMain = require("./socketMain");
+require("dotenv").config();
 
 const port = 8181;
 const num_processes = require("os").cpus().length;
@@ -40,14 +41,14 @@ if (cluster.isMaster) {
   const server = app.listen(0, "localhost");
   const io = socketio(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: process.env.PUBLIC_URL,
       credentials: true,
       methods: ["GET", "POST"],
       transports: ["websocket", "polling"],
     },
   });
 
-  io.adapter(io_redis({ host: "localhost", port: 6379 }));
+  io.adapter(io_redis({ host: process.env.REDDIS_HOST, port: 6379 }));
   io.on("connection", function (socket) {
     socketMain(io, socket);
     console.log(`connected to worker: ${cluster.worker.id}`);
