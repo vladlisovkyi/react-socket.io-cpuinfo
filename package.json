@@ -1,5 +1,13 @@
 {
-  "dependencies": {
-    "farmhash": "^3.3.0"
-  }
+  "name": "socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start --prefix nodeClient & npm run start --prefix server",
+    "install": "npm install --prefix nodeClient & npm install --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
